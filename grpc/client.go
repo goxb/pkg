@@ -44,6 +44,13 @@ func ClientCredentials(creds ClientCredentialsConfig) ClientOption {
 	}
 }
 
+// ClientCInsecure set insecure to true
+func ClientCInsecure() ClientOption {
+	return func(o *clientOptions) {
+		o.creds.Insecure = true
+	}
+}
+
 // UnaryClientInterceptors set unary client interceptors
 func UnaryClientInterceptors(interceptors ...grpc.UnaryClientInterceptor) ClientOption {
 	return func(o *clientOptions) {
